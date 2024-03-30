@@ -2,7 +2,7 @@
 title: "你好，北京！你好，原则科技！一切都是最好的安排！"
 description: "希望我们彼此都可以不遗余力地做自己喜欢的事情，为自己的事业和生活付出全部的热情！"
 pubDate: "2024-03-10"
-categories: ['工作搬砖']
+categories: ['认真搬砖']
 ---
 
 <!-- heroImage: "https://files.sunguoqi.com/images/202403101059569.webp" -->
