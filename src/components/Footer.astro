@@ -5,7 +5,7 @@ type Props = HTMLAttributes<"footer">;
 
 const { ...attrs } = Astro.props;
 
-const { website, author } = Astro.locals.config;
+const { author } = Astro.locals.config;
 ---
 
 <footer font-bold text-3 un-flex="~ col gap-1" un-lg="gap-3.5" {...attrs}>
