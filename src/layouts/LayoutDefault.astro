@@ -37,17 +37,12 @@ const optimizedImage = new URL(
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"
-    ></script>
-    <script>
-      LA.init({ id: "3F6cJC4GAXse6laY", ck: "3F6cJC4GAXse6laY" });
-    </script>
     <SEO
       charset="utf-8"
       title={title}
       description={desc}
       extend={{
-        link: [{ rel: "icon", href: "/avatar.webp", type: "image" }],
+        link: [{ rel: "icon", href: "/avatar.webp", type: "image/webp" }],
         meta: [
           { name: "twitter:image:src", content: optimizedImage },
           { name: "twitter:image:alt", content: desc },

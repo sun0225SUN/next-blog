@@ -131,112 +131,112 @@ declare module 'astro:content' {
   slug: "2021";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 "2022.md": {
 	id: "2022.md";
   slug: "2022";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 "2023.md": {
 	id: "2023.md";
   slug: "2023";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 "21.md": {
 	id: "21.md";
   slug: "21";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 "22.md": {
 	id: "22.md";
   slug: "22";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 "blogger.md": {
 	id: "blogger.md";
   slug: "blogger";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 "brain.md": {
 	id: "brain.md";
   slug: "brain";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 "chatGPT.md": {
 	id: "chatGPT.md";
   slug: "chatgpt";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 "github.md": {
 	id: "github.md";
   slug: "github";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 "kunlunchao.md": {
 	id: "kunlunchao.md";
   slug: "kunlunchao";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 "oh-my-posh.md": {
 	id: "oh-my-posh.md";
   slug: "oh-my-posh";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 "post-pic.md": {
 	id: "post-pic.md";
   slug: "post-pic";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 "start.md": {
 	id: "start.md";
   slug: "start";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 "xizang.md": {
 	id: "xizang.md";
   slug: "xizang";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 "yuanze.md": {
 	id: "yuanze.md";
   slug: "yuanze";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 "zhuhai.md": {
 	id: "zhuhai.md";
   slug: "zhuhai";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 };
 
@@ -248,5 +248,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = never;
+	export type ContentConfig = typeof import("../src/content/config.js");
 }
