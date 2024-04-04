@@ -85,3 +85,8 @@ article.heti a code:hover {
 .tk-owo-emotion, .twikoo .OwO-item img {
   display: inline-block;
 }
+
+div.tk-main > div.tk-content > span:nth-child(1){
+  display: block;
+  margin-bottom: 0.5rem;
+}
