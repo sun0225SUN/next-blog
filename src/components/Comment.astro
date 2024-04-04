@@ -1,0 +1,27 @@
+<div id="tcomment"></div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    function loadTwikoo() {
+      const commentsContainer = document.getElementById("tcomment");
+      if (commentsContainer) {
+        const script = document.createElement("script");
+        script.src =
+          "https://cdn.staticfile.org/twikoo/1.6.32/twikoo.all.min.js";
+        script.async = true;
+        script.onload = () => {
+          const initScript = document.createElement("script");
+          initScript.innerHTML = `
+            twikoo.init({
+                envId: 'https://myblog-comments.netlify.app/.netlify/functions/twikoo',
+                el: '#tcomment',
+            });
+        `;
+          document.body.appendChild(initScript);
+        };
+        document.body.appendChild(script);
+      }
+    }
+    loadTwikoo();
+  });
+</script>
