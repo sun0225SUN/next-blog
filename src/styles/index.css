@@ -80,3 +80,8 @@ article.heti a code:hover {
   color: #f9f2f4;
   background-color: #c7254e;
 }
+
+
+.tk-owo-emotion, .twikoo .OwO-item img {
+  display: inline-block;
+}
