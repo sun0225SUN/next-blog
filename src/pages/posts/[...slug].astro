@@ -3,7 +3,7 @@ import Post from "~/components/Post.astro";
 import LayoutDefault from "~/layouts/LayoutDefault.astro";
 import { getPosts } from "~/utils";
 import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
-import Comment from "~/components/Comment.astro";
+import PostComments from "~/components/PostComments.astro";
 import Pagination from "~/components/Pagination.astro";
 
 export const getStaticPaths = (async ({}) => {
@@ -43,7 +43,7 @@ const { translate: t } = Astro.locals;
     rightUrl={`/posts/${next?.slug}/`}
     showPageCount={false}
   />
-  <Comment />
+  <PostComments />
 </LayoutDefault>
 
 <script>
