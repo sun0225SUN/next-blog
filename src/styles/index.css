@@ -111,11 +111,6 @@ div.tk-main > div.tk-content > span:nth-child(1){
   color: white;
 }
 
-/* 旋转按钮颜色 */
-div.tk-comments-container > div.el-loading-mask > div > svg > circle{
-  stroke: #363636;
-}
-
 /* 刷新设置按钮样式 */
 #twikoo > div.tk-comments > div.tk-comments-container > div.tk-comments-title > span:nth-child(2) > span:nth-child(1),
 #twikoo > div.tk-comments > div.tk-comments-container > div.tk-comments-title > span:nth-child(2) > span:nth-child(2) {
