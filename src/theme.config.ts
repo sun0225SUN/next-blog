@@ -15,7 +15,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
   socials: [
     {
       name: "twitter",
-      href: "https://github.com/sun0225SUN",
+      href: "https://twitter.com/sun0225SUN",
     },
     {
       name: "github",
@@ -43,6 +43,14 @@ export const THEME_CONFIG: App.Locals['config'] = {
     {
       name: "Categories",
       href: "/categories"
+    },
+    {
+      name: "Albums",
+      href: "/albums"
+    },
+    {
+      name: "Links",
+      href: "/links"
     },
     {
       name: "About",

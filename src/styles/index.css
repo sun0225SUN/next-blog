@@ -82,11 +82,48 @@ article.heti a code:hover {
 }
 
 
+/*** Twikoo 评论区样式修复 ***/
+
+/* 评论区图片内联样式 */
 .tk-owo-emotion, .twikoo .OwO-item img {
   display: inline-block;
 }
 
+/* 评论回复样式 */
 div.tk-main > div.tk-content > span:nth-child(1){
   display: block;
   margin-bottom: 0.5rem;
+}
+
+/* 评论区加载动画样式修复 */
+.el-loading-spinner{
+  left: 50%;
+
+}
+
+/* 点赞按钮样式 */
+.tk-action a span{
+  color: #363636;
+}
+
+/* hover 样式 */
+.tk-action a:hover span{
+  color: white;
+}
+
+/* 旋转按钮颜色 */
+div.tk-comments-container > div.el-loading-mask > div > svg > circle{
+  stroke: #363636;
+}
+
+/* 刷新设置按钮样式 */
+#twikoo > div.tk-comments > div.tk-comments-container > div.tk-comments-title > span:nth-child(2) > span:nth-child(1),
+#twikoo > div.tk-comments > div.tk-comments-container > div.tk-comments-title > span:nth-child(2) > span:nth-child(2) {
+  color: #363636;
+}
+
+/*** 代码 copy 按钮 **/
+body > div.container.contain-layout.m-a > main > article > div:nth-child(36) > pre > button{
+  background-color: #363636;
+  color: white;
 }
