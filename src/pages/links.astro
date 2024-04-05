@@ -1,9 +1,501 @@
 ---
-import LayoutDefault from "~/layouts/LayoutDefault.astro";
 import PostComments from "~/components/PostComments.astro";
+import LayoutDefault from "~/layouts/LayoutDefault.astro";
+
+const getSiteshotApi =
+  "https://image.thum.io/get/width/400/crop/800/allowJPG/wait/20/noanimate/";
+
+const defalutSiteshot =
+  "https://files.sunguoqi.com/images/202404060324213.webp";
+
+const links = {
+  close: {
+    title: "亲朋好友",
+    data: [
+      {
+        name: "郭晓力's Blog",
+        url: "https://guoxiaoli.com",
+        avatar: "https://files.sunguoqi.com/images/202404060318905.webp",
+        siteshot: "",
+        descr: "90 后，定居北京，有俩个儿子",
+      },
+      {
+        name: "Duan Yu",
+        url: "https://www.ddycoding.cn",
+        avatar: "https://files.sunguoqi.com/images/202401211742824.webp",
+        siteshot: "",
+        descr: "春风若有怜花意，可否许我再少年",
+      },
+      {
+        name: "kang",
+        url: "https://blog.coderkang.top",
+        avatar: "https://files.sunguoqi.com/images/202312202254301.webp",
+        siteshot: "",
+        descr: "面朝大海，春暖花开",
+      },
+      {
+        name: "Kai",
+        url: "https://kaiyi.cool",
+        avatar: "https://files.sunguoqi.com/images/202404060448877.webp",
+        siteshot: "",
+        descr: "SuperFly Coder Life",
+      },
+      {
+        name: "Simon He",
+        url: "https://simonhe.me",
+        avatar: "https://files.sunguoqi.com/images/202404060450617.webp",
+        siteshot: "",
+        descr: "一个热爱编码的前端程序员",
+      },
+      {
+        name: "liruifengv",
+        url: "https://liruifengv.com",
+        avatar: "https://files.sunguoqi.com/images/202404060602832.webp",
+        siteshot: "",
+        descr: "Web Developer, Astro Maintainer",
+      },
+      {
+        name: "Roozen 的小破站",
+        url: "https://roozen.top",
+        avatar: "https://files.sunguoqi.com/images/202312202255248.webp",
+        siteshot: "",
+        descr: "技术宅男拯救世界",
+      },
+    ],
+  },
+  recommend: {
+    title: "推荐访问",
+    data: [
+      {
+        name: "张洪 Heo",
+        url: "https://blog.zhheo.com",
+        avatar: "https://files.sunguoqi.com/images/202312202253022.webp",
+        siteshot: "",
+        descr: "分享设计与科技生活",
+      },
+      {
+        name: "Akilarの糖果屋",
+        url: "https://akilar.top",
+        avatar: "https://files.sunguoqi.com/images/202312202250485.webp",
+        siteshot: "https://files.sunguoqi.com/images/202312202148238.webp",
+        descr: "欢迎光临糖果屋",
+      },
+      {
+        name: "安知鱼",
+        url: "https://blog.anheyu.com",
+        avatar: "https://files.sunguoqi.com/images/202312202253451.webp",
+        siteshot: "",
+        descr: "分享设计与科技生活！",
+      },
+      {
+        name: "困困鱼",
+        url: "https://moony.la",
+        avatar: "https://files.sunguoqi.com/images/202312202254492.webp",
+        siteshot: "",
+        descr: "喜欢鼓捣的博主",
+      },
+      {
+        name: "Bruce",
+        url: "https://yinji.org",
+        avatar: "https://files.sunguoqi.com/images/202312211349255.webp",
+        siteshot: "",
+        descr: "Blogger/摄影爱好者/数码发烧友",
+      },
+      {
+        name: "小染笔记",
+        url: "https://xrr.org.cn",
+        avatar: "https://files.sunguoqi.com/images/202312202255893.webp",
+        siteshot: "",
+        descr: "不必借光而行，你我皆是星辰",
+      },
+      {
+        name: "但为君故",
+        url: "https://blog.terminals.run",
+        avatar: "https://github.com/PrinOrange.png",
+        siteshot: "",
+        descr: "记载、分享一些技术、生活和思想的地方。",
+      },
+    ],
+  },
+  normal: {
+    title: "小伙伴们",
+    data: [
+      {
+        name: "samkallon",
+        url: "https://samkallon.top",
+        avatar: "https://files.sunguoqi.com/images/202311241405491.webp",
+        siteshot: "",
+        descr: "技术分享 && 生活日常",
+      },
+      {
+        name: "AirboZH",
+        url: "https://airbozh.cn",
+        avatar: "https://files.sunguoqi.com/images/202311241405070.webp",
+        siteshot: "",
+        descr: "This shit make me feel alive.",
+      },
+      {
+        name: "老生杂谈的 IT 人",
+        url: "https://www.oldit.cn",
+        avatar: "https://files.sunguoqi.com/images/202311241426482.webp",
+        siteshot: "",
+        descr: "老生杂谈，后继有人。",
+      },
+      {
+        name: "史一鸣的 Blog",
+        url: "https://shiym.top",
+        avatar: "https://files.sunguoqi.com/images/202311241426433.webp",
+        siteshot: "",
+        descr: "做正确的事，比正确的做事更重要。",
+      },
+      {
+        name: "Taosu`Home",
+        url: "https://blog.yblue.top",
+        avatar: "https://files.sunguoqi.com/images/202312202256213.webp",
+        siteshot: "",
+        descr: "Daily Growing",
+      },
+      {
+        name: "随风起",
+        url: "https://blog.bywind.xyz",
+        avatar: "https://files.sunguoqi.com/images/202312202256618.webp",
+        siteshot: "",
+        descr: "爱意随风起，风止意难平",
+      },
+      {
+        name: "小张同学",
+        url: "https://blog.xiaozhangstu.com",
+        avatar: "https://files.sunguoqi.com/images/202312202257970.webp",
+        siteshot: "",
+        descr: "小张的进步记录",
+      },
+      {
+        name: "Ethan.Tzy",
+        url: "https://fe32.top",
+        avatar: "https://files.sunguoqi.com/images/202312202258345.webp",
+        siteshot: "",
+        descr: "古今之成大事者，不惟有超世之才，亦必有坚忍不拔之志",
+      },
+      {
+        name: "毕少侠",
+        url: "https://hexo.geekswg.top",
+        avatar: "https://files.sunguoqi.com/images/202312202258345.webp",
+        siteshot: "",
+        descr: "毕少侠也在江湖",
+      },
+      {
+        name: "九弦之屋",
+        url: "https://blog.sinzmise.top",
+        avatar: "https://files.sunguoqi.com/images/202312202258836.webp",
+        siteshot: "",
+        descr: "欢迎旅行者，来到这个平凡但又记载了许多故事的小屋",
+      },
+      {
+        name: "福福不服",
+        url: "https://ffbf.top",
+        avatar: "https://files.sunguoqi.com/images/202312202259551.webp",
+        siteshot: "",
+        descr: "不服就是不服",
+      },
+      {
+        name: "小志 IT 知识库",
+        url: "https://www.czfq99.cn",
+        avatar: "https://files.sunguoqi.com/images/202312202259951.webp",
+        siteshot: "",
+        descr: "一个专注于安全领域的全栈博客",
+      },
+      {
+        name: "SerMs",
+        url: "https://serms.top",
+        avatar: "https://files.sunguoqi.com/images/202312202300763.webp",
+        siteshot: "",
+        descr: "迈向光明之路，必定荆棘从生。",
+      },
+      {
+        name: "流殃",
+        url: "https://shyblog.world",
+        avatar: "https://files.sunguoqi.com/images/202312202300533.webp",
+        siteshot: "",
+        descr: "用微笑面试生活吧",
+      },
+      {
+        name: "满心",
+        url: "https://blog.lovelu.top",
+        avatar: "https://files.sunguoqi.com/images/202312202301442.webp",
+        siteshot: "",
+        descr: "追求让人充实，分享让人快乐",
+      },
+      {
+        name: "七鳄の学习格",
+        url: "https://blog.gmcj0816.top",
+        avatar: "https://files.sunguoqi.com/images/202312202302275.webp",
+        siteshot: "",
+        descr: "如果世界多了精彩，每一位都是创造者，大家都是你的观众",
+      },
+      {
+        name: "探人间",
+        url: "https://www.hydsb0.com",
+        avatar: "https://files.sunguoqi.com/images/202312202302036.webp",
+        siteshot: "",
+        descr: "努力吃上更贵的雪糕！",
+      },
+      {
+        name: "Shine",
+        url: "https://blog.shineyu.cn",
+        avatar: "https://files.sunguoqi.com/images/202312202302980.webp",
+        siteshot: "",
+        descr: "热爱生活点滴，分享时刻精彩。",
+      },
+      {
+        name: "Top John",
+        url: "https://op-lab.top",
+        avatar: "https://files.sunguoqi.com/images/202311241446577.webp",
+        siteshot: "",
+        descr: "热爱开源，喜欢折腾!",
+      },
+      {
+        name: "Leonus",
+        url: "https://blog.leonus.cn",
+        avatar: "https://files.sunguoqi.com/images/202311241445407.webp",
+        siteshot: "",
+        descr: "进一寸有进一寸的欢喜。",
+      },
+      {
+        name: "Prong",
+        url: "https://prong.ltd",
+        avatar: "https://files.sunguoqi.com/images/202312202303048.webp",
+        siteshot: "",
+        descr: "尖头叉子在霍格沃茨的休息室~",
+      },
+      {
+        name: "Gallifrey's Blog",
+        url: "https://gallifrey.asia",
+        avatar: "https://files.sunguoqi.com/images/202312202303100.webp",
+        siteshot: "",
+        descr: "我的技术归档，我的生活，我的梦",
+      },
+      {
+        name: "LI SIR",
+        url: "https://blog.lisir.me",
+        avatar: "https://files.sunguoqi.com/images/202312202303760.webp",
+        siteshot: "",
+        descr: "记住，你什么都不缺，缺的是从头再来的勇气",
+      },
+      {
+        name: "轻笑 Chuckle",
+        url: "https://www.chuckle.top",
+        avatar: "https://files.sunguoqi.com/images/202312202324800.webp",
+        siteshot: "",
+        descr: "宁静致远，倾尘轻笑",
+      },
+      {
+        name: "itsNekoDeng",
+        url: "https://dyfa.top",
+        avatar: "https://files.sunguoqi.com/images/202312202323398.webp",
+        siteshot: "",
+        descr: "十万伏特皮卡丘",
+      },
+      {
+        name: "W4J1e's blog",
+        url: "https://hin.cool",
+        avatar: "https://files.sunguoqi.com/images/202312202323166.webp",
+        siteshot: "",
+        descr: "总是偏爱不务正业",
+      },
+      {
+        name: "Echo’s blog",
+        url: "https://www.liveout.cn",
+        avatar: "https://files.sunguoqi.com/images/202312202323884.webp",
+        siteshot: "",
+        descr: "韶华不为少年留 恨悠悠几时休",
+      },
+      {
+        name: "HiPeach",
+        url: "https://blog.opeach.cn",
+        avatar: "https://files.sunguoqi.com/images/202312202322303.webp",
+        siteshot: "",
+        descr: "妙不可言",
+      },
+      {
+        name: "理随",
+        url: "https://vercel.lisui.top",
+        avatar: "https://files.sunguoqi.com/images/202312202322782.webp",
+        siteshot: "",
+        descr: "生而无畏，站至终章",
+      },
+      {
+        name: "Calyee",
+        url: "https://blog.calyee.top",
+        avatar: "https://files.sunguoqi.com/images/202312202322065.webp",
+        siteshot: "",
+        descr: "追求充实，分享快乐",
+      },
+      {
+        name: "qxdn 的乐园",
+        url: "https://qianxu.run",
+        avatar: "https://files.sunguoqi.com/images/202312202321424.webp",
+        siteshot: "",
+        descr: "蓬生麻中，不扶而直",
+      },
+      {
+        name: "呆鱼",
+        url: "https://daiyu.fun",
+        avatar: "https://files.sunguoqi.com/images/202312202321102.webp",
+        siteshot: "",
+        descr: "Hello World!",
+      },
+      {
+        name: "唯之为之",
+        url: "https://weizwz.com",
+        avatar: "https://files.sunguoqi.com/images/202312202319862.webp",
+        siteshot: "",
+        descr: "时光笔墨",
+      },
+      {
+        name: "阳小楊",
+        url: "https://blog.yxyang.top",
+        avatar: "https://files.sunguoqi.com/images/202312202319847.webp",
+        siteshot: "",
+        descr: "无人了解你的灵魂",
+      },
+      {
+        name: "wiidede | 小的的",
+        url: "https://wiidede.space",
+        avatar: "https://files.sunguoqi.com/images/202312202317086.webp",
+        siteshot: "",
+        descr: "是小的的呐，愿你眼里有光，心中有爱",
+      },
+      {
+        name: "小小笔记大大用处",
+        url: "https://blog.uptoz.cn",
+        avatar: "https://files.sunguoqi.com/images/202312202306824.webp",
+        siteshot: "",
+        descr: "保持热爱，奔赴山海。",
+      },
+      {
+        name: "一个橙子",
+        url: "https://yigechengzi.com",
+        avatar: "https://files.sunguoqi.com/images/202312202305629.webp",
+        siteshot: "",
+        descr: "一个资深的前端开发工程师，前端库 howtools、howuse 的作者",
+      },
+      {
+        name: "Baili Blog",
+        url: "https://baili.tax",
+        avatar: "https://files.sunguoqi.com/images/202312202334385.webp",
+        siteshot: "",
+        descr: "一个源码资源教程分享博客",
+      },
+      {
+        name: "小破站",
+        url: "https://syml.online",
+        avatar: "https://files.sunguoqi.com/images/202401171122044.webp",
+        siteshot: "",
+        descr: "蓬生麻中，不扶自直",
+      },
+      {
+        name: "白雾茫茫",
+        url: "https://baiwumm.com",
+        avatar: "https://files.sunguoqi.com/images/202401172253133.webp",
+        siteshot: "",
+        descr: "记录学习、生活和有趣的事",
+      },
+      {
+        name: "JDDFE",
+        url: "https://blog.jddfe.com",
+        avatar: "https://files.sunguoqi.com/images/202402061322688.webp",
+        siteshot: "",
+        descr: "Just do dare face everything",
+      },
+      {
+        name: "懒人 blog",
+        url: "https://www.lanrenn.cn",
+        avatar: "https://files.sunguoqi.com/images/202402061323205.webp",
+        siteshot: "",
+        descr: "汇聚全网优质资源素材，源码，壁纸，图片，代码，软件，教程等!",
+      },
+    ],
+  },
+};
 ---
 
 <LayoutDefault>
-  <div text-3xl mb-10>Todo</div>
-  <PostComments />
+  <div
+    text-2xl
+    mb-10
+    md:text-3xl
+    class="flex justify-center items-center w-full font-bold"
+  >
+    海内存知己，天涯若比邻
+  </div>
+  {
+    Object.keys(links).map((key) => (
+      <>
+        <div
+          my-5
+          text-xl
+          md:text-2xl
+          class="flex justify-center items-center font-bold"
+        >
+          {links[key as keyof typeof links].title}
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-3">
+          {links[key as keyof typeof links].data.map((link) => (
+            <div class="flex flex-col items-start justify-center p-4">
+              <a
+                href={link.url}
+                target="_blank"
+                class="hidden md:block shadow-xl"
+              >
+                <img
+                  src={
+                    link.siteshot ||
+                    getSiteshotApi + link.url ||
+                    defalutSiteshot
+                  }
+                  alt={link.name}
+                  class="w-full h-48 object-cover"
+                />
+              </a>
+              <div class="flex items-center mt-4">
+                <img
+                  src={link.avatar}
+                  alt={link.name}
+                  class="w-12 h-12 rounded-full"
+                />
+                <div class="ml-4">
+                  <p class="h-30px overflow-hidden">
+                    <a
+                      href={link.url}
+                      target="_blank"
+                      class="text-lg font-bold"
+                    >
+                      {link.name}
+                    </a>
+                  </p>
+                  <p class="text-sm text-gray-500 overflow-hidden h-[40px]">
+                    {link.descr}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </>
+    ))
+  }
+  <div>
+    <div class="text-xl md:text-2xl font-bold text-center mt-10">友链申请</div>
+    <div class="text-center mt-5">
+      <p>按照规范格式，在评论区留言，我会尽快添加你的友链。</p>
+    </div>
+    <div class="text-xl md:text-2xl font-bold text-center mt-5">注意事项</div>
+    <!-- 多写几条注意事项 -->
+    <div class="text-center mt-5 my-10">
+      <p>1. 请先添加我的友链，然后在评论区留言。</p>
+      <p>2. 请保持网站的友好性，不接受违法违规等网站。</p>
+      <p>3. 请保持网站的活跃性，不接受长时间不更新的网站。</p>
+    </div>
+    <PostComments />
+  </div>
 </LayoutDefault>
