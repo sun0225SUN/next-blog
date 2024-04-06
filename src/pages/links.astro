@@ -1,6 +1,6 @@
 ---
 import PostComments from "~/components/PostComments.astro";
-import LayoutDefault from "~/layouts/LayoutDefault.astro";
+import LayoutNoFooter from "~/layouts/LayoutNoFooter.astro";
 
 const getSiteshotApi =
   "https://image.thum.io/get/width/400/crop/800/allowJPG/wait/20/noanimate/";
@@ -419,7 +419,7 @@ const links = {
 };
 ---
 
-<LayoutDefault>
+<LayoutNoFooter>
   <div
     text-2xl
     mb-10
@@ -489,4 +489,4 @@ const links = {
     <p>按照规范格式，在评论区留言，我会尽快添加你的友链。</p>
   </div>
   <PostComments />
-</LayoutDefault>
+</LayoutNoFooter>
