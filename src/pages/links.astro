@@ -441,7 +441,7 @@ const links = {
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-3">
           {links[key as keyof typeof links].data.map((link) => (
-            <div class="flex flex-col items-start justify-center p-4">
+            <div class="flex flex-col items-start justify-center p-4 hover:scale-105">
               <a
                 href={link.url}
                 target="_blank"
