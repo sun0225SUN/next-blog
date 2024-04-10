@@ -342,15 +342,13 @@ ByteDance，让字节飞舞！八个比特，一个字节（巧合的是，原�
 <p>答：清华吧，混的好的话，我想成为保安队长。</p>
 </blockquote>
 
-<div style="display:flex;">
-<img width="80%" src="https://files.sunguoqi.com/images/202403100653299.webp"/>
-<img width="80%" src="https://files.sunguoqi.com/images/202403100654603.webp"/>
-</div>
+<img src="https://files.sunguoqi.com/images/202403100653299.webp"/>
+<img src="https://files.sunguoqi.com/images/202403100654603.webp"/>
 
 <p></p>
 认知和环境的差距，造就了社会的百态，我们生活在巨大的差距里。
 
-<img width="80%" src="https://files.sunguoqi.com/images/202403100657326.webp"/>
+<img src="https://files.sunguoqi.com/images/202403100657326.webp"/>
 
 
 <blockquote>
