@@ -46,7 +46,7 @@ export const THEME_CONFIG: App.Locals['config'] = {
     },
     {
       name: "Albums",
-      href: "/albums"
+      href: "https://gallery.sunguoqi.com"
     },
     {
       name: "Links",
