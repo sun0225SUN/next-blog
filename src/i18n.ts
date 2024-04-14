@@ -8,6 +8,7 @@ export const LANGUAGES = {
     About: '关于',
     Links: '友链',
     Albums: '影集',
+    Bicycle: '骑行',
     posted_at: '发布于',
     tag_count: '%d 篇',
     archive_count: '%d 篇',

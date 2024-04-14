@@ -49,6 +49,10 @@ export const THEME_CONFIG: App.Locals['config'] = {
       href: "https://gallery.sunguoqi.com"
     },
     {
+      name: "Bicycle",
+      href: "https://bicycling.sunguoqi.com"
+    },
+    {
       name: "Links",
       href: "/links"
     },
