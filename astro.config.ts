@@ -4,7 +4,6 @@ import { THEME_CONFIG } from "./src/theme.config";
 import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 
-// test
 // https://astro.build/config
 export default defineConfig({
   site: THEME_CONFIG.website,
